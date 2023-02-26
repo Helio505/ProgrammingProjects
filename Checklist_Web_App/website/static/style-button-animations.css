@@ -1,0 +1,92 @@
+#button-visualizar-listas:hover{
+    background-color: #9a9a04e3;
+}
+#button-visualizar-listas:active{
+    background-color: #9a9a04e3;
+    position: relative;
+    left: 2px;
+    top: 2px;
+}
+
+
+#send-criar-lista:hover{
+    background-color: #033560eb;
+}
+#send-criar-lista:active{
+    background-color: #033560eb;
+    position: relative;
+    left: 2px;
+    top: 2px;
+}
+
+
+#button-select:hover{
+    background-color: #033560eb;
+}
+#button-select:active{
+    background-color: #033560eb;
+    position: relative;
+    left: 2px;
+    top: 2px;
+}
+
+
+#atualizar-lista-button:hover{
+    background-color: #033560eb;
+}
+#atualizar-lista-button:active{
+    background-color: #033560eb;
+    position: relative;
+    left: 2px;
+    top: 2px;
+}
+
+#button-criar-tarefa:hover{
+    background-color: #033560eb;
+}
+#button-criar-tarefa:active{
+    background-color: #033560eb;
+    position: relative;
+    left: 2px;
+    top: 2px;
+}
+
+#input-button-edit-lista:hover{
+    background-color: #626262eb;
+}
+#input-button-edit-lista:active{
+    background-color: #0b109deb;
+    color: white;
+}
+
+#input-button-delete-lista:hover{
+    background-color: #626262eb;
+}
+#input-button-delete-lista:active{
+    background-color: #9d0b0beb;
+    color: white;
+}
+
+
+#input-button-edit-tarefa:hover{
+    background-color: #626262eb;
+}
+#input-button-edit-tarefa:active{
+    background-color: #0b109deb;
+    color: white;
+}
+
+#input-button-delete-tarefa:hover{
+    background-color: #626262eb;
+}
+#input-button-delete-tarefa:active{
+    background-color: #9d0b0beb;
+    color: white;
+}
+
+#input-button:hover{
+    background-color: #626262eb;
+}
+#input-button:active{
+    background-color: white;
+}

@@ -1,0 +1,358 @@
+*{
+    font-family: 'Courier New', Courier, monospace;
+}
+body{
+    margin: 0%;
+}
+b{
+    margin: 0%;
+}
+#lista-selecionada{
+    margin: 0%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 118px;
+    margin-top: 17px;
+}
+#lista-selecionada-content{
+    background-color: #212529;
+    border-radius: 6px;
+    border: solid 1px black;
+    font-size: large;
+    color: white;
+}
+
+.navbar{
+    background-color: #212529;
+    width: 100%;
+    height: 10vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    
+}
+.navbar-inside{
+    background-color: #212529;
+    color: white;
+    
+}
+.nav-title{
+    margin-right: 20px;
+    font-size: xx-large;
+    color: white;
+    padding-left: 4px;
+}
+.nav-button{
+    background-color: #212529;
+    cursor: pointer;
+    border-radius: 4px;
+    border-width: 2px;
+    border-color: white;
+    color: white;
+}
+
+
+/* Form para criar a lista.  */
+#criação-lista-container{
+    height: 81px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+#criação-lista-form-container{
+    position: relative;
+    margin-left: 5px;
+    padding-top: 15px;
+}
+#input-criar-lista{
+    border-radius: 6px;
+
+    height: 40px;
+    width: 200px;
+    font-size: larger;
+}
+#send-criar-lista{
+    height: 40px;
+    width: 200px;
+    font-size: larger;
+    background-color: #0063BAEB;
+    color: black;
+    border-radius: 6px;
+    width: 70px;
+    cursor: pointer;
+}
+#label-criar-lista{
+    font-size: larger;
+}
+
+
+/* Atualizar lista botão:  */
+#atualizar-lista-button{
+    background-color: #0078d7;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: larger;
+    border-radius: 6px;
+    cursor: pointer;
+
+    height: 42px;
+}
+#atualizar-lista-label{
+    font-size: larger;
+}
+
+
+/* Criar lista: */
+#container-select{
+    margin-left: 5px;
+	
+	display: flex;
+    flex-direction: column;
+	align-items: center;
+    height: 50px;
+}
+#select{
+    border-radius: 6px;
+    height: 40px;
+    width: 200px;
+    font-size: larger;
+}
+#button-select{
+    background-color: #0063BAEB;
+    border-radius: 6px;
+    height: 40px;
+    width: 135px;
+    font-size: larger;
+    cursor: pointer;
+}
+#label-select{
+    font-size: larger;
+}
+
+/* Criar tarefas:  */
+#div-criar-tarefa-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#criar-tarefa-form{
+    display: flex;
+    flex-direction: row;
+    margin-left: 5px;
+
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+#input-content-tarefa{
+    border-radius: 6px;
+    font-size: larger;
+    height: 40px;
+}
+#button-criar-tarefa{
+    background-color: #0063BAEB;
+    margin-top: 2px;
+    margin-left: 4px;
+    height: 40px;
+    width: 70px;
+    border-radius: 6px;
+    font-size: larger;
+    cursor: pointer;
+}
+#label-criar-tarefa{
+    background-color: none;
+    padding-top: 9px;
+    font-size: larger;
+}
+
+
+/* Botão visualizar listas: */
+#div-botão-visualizar-listas{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#botão-visualizar-listas{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#button-visualizar-listas{
+    font-size: larger;
+    cursor: pointer;
+    background-color: #FFFF00E3;
+    border-radius: 6px;
+}
+#label-visualizar-listas{
+    font-size: larger;
+}
+  
+/* Componente lista e tarefa: */
+.div-component{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.lista-e-tarefa-component{ 
+    height: fit-content;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin-right: 118px;
+    margin-top: 17px;
+	
+    background-color: #212529;
+	border-radius: 10px;
+}
+.lista-title{
+    font-weight: bold;
+    font-size: x-large;
+	color: white;
+    padding-top: 7px;
+}
+.lista-content{
+    background-color: #212529;
+    border-radius: 10px;
+}
+.tarefa-component{
+    height: 40px;
+    width: 400px;
+    margin: 7px;
+
+    display: flex;
+    flex-direction: row;
+    background-color: #464a4e;
+    border-radius: 10px;
+}
+.tarefa-component-checkbox{
+    position: relative;
+    top: 10px;
+    left: 8px;
+}
+#input-button{
+    border-radius: 4px;
+    border-width: 1px;
+    border-color: #0a0a0a;
+    font-size: medium;
+    position: relative;
+    bottom: 3px;
+    left: 2px;
+}
+.div-edit-delete-tarefa{
+    position: relative;
+    left: 19px;
+    height: fit-content;
+    top: 8px;
+    border-width: 8px;
+    border-color: yellow;
+    background-color: #464a4e;
+    color: green;
+    border: 1px solid #000;
+    height: 20px;
+    display: flex;
+    flex-direction: row;
+    border-radius: 6px;
+}
+
+#div-edit-delete-tarefa{
+    position: relative;
+    left: 19px;
+    height: fit-content;
+    top: 8px;
+    border-width: 8px;
+    border-color: yellow;
+    background-color: #464a4e;
+    color: green;
+    border: 1px solid #000;
+    height: 20px;
+    display: flex;
+    flex-direction: row;
+    border-radius: 6px;
+}
+#input-button-edit-tarefa{
+    border-radius: 4px;
+    border-width: 1px;
+    border-color: #0a0a0a;
+}
+#input-button-delete-tarefa{
+    border-radius: 4px;
+    border-width: 1px;
+    border-color: #0a0a0a;
+}
+#input-button2{
+    width: 30px;    
+}
+#line1{
+    background-color: #FFFFFF;
+    height: 0px;
+    width: 34px;
+    border: 2px solid #FFFFFF;
+    transform: rotate(90deg);
+    left: 18px;
+    position: relative;
+    bottom: 11px;
+    border-radius: 2px;
+}
+#line2{
+    background-color: #FFFFFF;
+    height: 0px;
+    width: 34px;
+    border: 2px solid #949494;
+    transform: rotate(90deg);
+    left: 72px;
+    position: relative;
+    bottom: 11px;
+    border-radius: 2px;
+}
+.tarefa-component-content{
+    position: relative;
+    top: 10px;
+    /* left: 15px; */
+    left: 26px;
+    color: white;
+}
+
+
+.label{
+    margin-left: 10px;
+}
+
+#testdiv{
+    width: fit-content;
+}
+
+
+#div-lista-title{
+    display: flex;
+    flex-direction: row;
+
+}
+#div-edit-delete-lista{
+    position: relative;
+    width: fit-content;
+    height: fit-content;
+    top: 11px;
+    border-radius: 6px;
+}
+#input-button-edit-lista{
+    border-radius: 4px;
+    border-width: 1px;
+    border-color: #0a0a0a;
+}
+#input-button-delete-lista{
+    position: relative;
+    right: 10px;
+    border-radius: 4px;
+    border-width: 1px;
+    border-color: #0a0a0a;
+}
+#div-edit{
+    display: flex;
+    flex-direction: row;
+    color: white;
+}
+
