@@ -1,4 +1,4 @@
 env
-/__pycache__
+website/__pycache__
 codigo_removido.txt
 db.db
