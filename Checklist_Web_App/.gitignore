@@ -2,3 +2,4 @@ env
 website/__pycache__
 codigo_removido.txt
 db.db
+commit_messages.txt

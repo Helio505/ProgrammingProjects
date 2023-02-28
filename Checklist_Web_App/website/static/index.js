@@ -183,11 +183,11 @@ buttonCriarLista.addEventListener("click", function(e){
     http.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
     http.onreadystatechange = function() {
         if (http.readyState === XMLHttpRequest.DONE && http.status === 200) {
-            // console.log(JSON.parse(http.responseText));
-            console.log(http.status)
+            console.log(http.status);
             
-        }else if(http.readyState === XMLHttpRequest.DONE && http.status !== 200){
+        }else if(http.readyState === XMLHttpRequest.DONE && http.status === 500){
             console.log("Error");
+            alert("Lista não criada: Listas devem ter nomes únicos.")
         }
     }
     http.send(JSON.stringify({
