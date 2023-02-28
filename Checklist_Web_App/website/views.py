@@ -66,6 +66,7 @@ def get_listas():
         }
         listas.append(lista)
     
+    session.close()
     return make_response(
         jsonify(
             message="Lista com todas as listas.",
@@ -96,6 +97,7 @@ def inserir_lista():
         lista_database = Lista(nome=response['nome'])
         session.add(lista_database)
         session.commit()
+        session.close()
 
         return make_response(
             jsonify(
@@ -119,6 +121,7 @@ def criar_tarefa():
     tarefa = Tarefa(nome="tarefa", conteúdo=response['conteúdo'], pertence_a=extra_database_saved_id_list.lista_selecionada, status=0)
     session.add(tarefa)
     session.commit()
+    session.close()
     return {"data": "tarefa adicionada com sucesso"}
 
 @views.route("/extra/list/selected/id", methods=['PUT'])
@@ -149,7 +152,7 @@ def selecionar_lista():
     extra_database_save_id.lista_selecionada = lista_selecionada_nova.id
 
     session.commit()
-
+    session.close()
     return {"data": response}
 
 @views.route("/lists/selected/name", methods=['GET'])
@@ -164,7 +167,7 @@ def get_nome_lista_selecionada():
 
     lista_by_id = session.query(Lista).filter_by(id=saved_in_extra.lista_selecionada).first()
     nome_lista = lista_by_id.nome
-
+    session.close()
     return make_response(
         jsonify(
             message="dfasfd",
@@ -194,7 +197,7 @@ def get_todas_tarefas_pertencentes():
             "status": i.status
         }
         lista_de_todas_tarefas.append(tarefa)
-
+    session.close()
 
     return make_response(
         jsonify(
