@@ -136,6 +136,12 @@ function editNomeListaRequest() {
     
     const newListName = document.querySelector("#list-title-input").value;
     
+    let emptyName = ["", " ", "  ", "   ", "    "];
+    if (emptyName.includes(newListName)) {
+        alert("Insira algum nome válido para a lista.")
+        return
+    }
+
     // Mandando request:
     var http = new XMLHttpRequest();
     var url = "http://127.0.0.1:5000/lists/selected";
@@ -240,7 +246,7 @@ buttonCriarTarefa.addEventListener("click", function(e){
     const inputTagContentTarefa = document.querySelector("#input-content-tarefa");
     const tarefaContent = inputTagContentTarefa.value;
 
-    let emptyName = ["", " ", " ", "   "];
+    let emptyName = ["", " ", "  ", "   ", "    "];
     if (emptyName.includes(tarefaContent)) {
         alert("Insira algum conteúdo para a tarefa.")
         return
@@ -369,6 +375,12 @@ function editTarefaRequest(parameter) {
     const hiddenInputId = parameter;
     const newTarefaContent = document.querySelector("#tarefa-input").value;
     
+    let emptyName = ["", " ", "  ", "   ", "    "];
+    if (emptyName.includes(newTarefaContent)) {
+        alert("Insira algum conteúdo válido para a tarefa.")
+        return
+    }
+
     // Mandando request:
     var http = new XMLHttpRequest();
     var url = `http://127.0.0.1:5000/tasks/${hiddenInputId}`;
