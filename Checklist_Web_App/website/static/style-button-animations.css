@@ -1,8 +1,8 @@
 #button-visualizar-listas:hover{
-    background-color: #9a9a04e3;
+    background-color: #033560eb;
 }
 #button-visualizar-listas:active{
-    background-color: #9a9a04e3;
+    background-color: #1380dede;
     position: relative;
     left: 2px;
     top: 2px;
@@ -13,7 +13,8 @@
     background-color: #033560eb;
 }
 #send-criar-lista:active{
-    background-color: #033560eb;
+    /* background-color: #033560eb; */
+    background-color: #1380dede;
     position: relative;
     left: 2px;
     top: 2px;
@@ -24,7 +25,8 @@
     background-color: #033560eb;
 }
 #button-select:active{
-    background-color: #033560eb;
+    /* background-color: #033560eb; */
+    background-color: #1380dede;
     position: relative;
     left: 2px;
     top: 2px;
@@ -35,7 +37,8 @@
     background-color: #033560eb;
 }
 #atualizar-lista-button:active{
-    background-color: #033560eb;
+    /* background-color: #033560eb; */
+    background-color: #1380dede;
     position: relative;
     left: 2px;
     top: 2px;
@@ -45,7 +48,8 @@
     background-color: #033560eb;
 }
 #button-criar-tarefa:active{
-    background-color: #033560eb;
+    /* background-color: #033560eb; */
+    background-color: #1380dede;
     position: relative;
     left: 2px;
     top: 2px;

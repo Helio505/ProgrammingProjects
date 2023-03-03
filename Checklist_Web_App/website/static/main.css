@@ -182,8 +182,10 @@ b{
 #button-visualizar-listas{
     font-size: larger;
     cursor: pointer;
-    background-color: #FFFF00E3;
+    background-color: #0063BAEB;
     border-radius: 6px;
+    height: 34px;
+    width: 209px;
 }
 #label-visualizar-listas{
     font-size: larger;
