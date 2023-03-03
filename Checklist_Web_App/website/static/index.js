@@ -1,3 +1,8 @@
+function resetPage() {
+    document.location.reload();
+    window.location.href = "/";
+}
+
 const atualizarListaBtn = document.querySelector("#atualizar-lista-button");
 atualizarListaBtn.addEventListener("click", update_select);
 function update_select() {
@@ -73,7 +78,7 @@ function get_name_lista() {
     }
     http.send();
 }
-get_name_lista();
+// get_name_lista();
 
 function get_tarefas_pertencentes() {
 
@@ -290,14 +295,6 @@ buttonTaskStatus.addEventListener("click", function () {
         button.value = "[]";
     }
 });
-
-/* Para resetar a página */
-const buttonResetPage = document.querySelector("#reset-button");
-buttonResetPage.addEventListener("click", function(){
-    document.location.reload();
-    window.location.href = "/"
-});
-
 
 
 // const buttonDeleteLista = document.querySelector("#input-button-delete-lista");
