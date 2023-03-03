@@ -1,8 +1,7 @@
-from flask import Blueprint, render_template, url_for
+from flask import Blueprint, render_template
 from flask_restful import request
 
 from flask import Flask, make_response, jsonify, request
-from flask_restful import Api, Resource
 
 import sqlalchemy
 from sqlalchemy import Column, Integer, String, Boolean
@@ -166,6 +165,14 @@ def get_nome_lista_selecionada():
     saved_in_extra = session.query(Extra).filter_by(id=1).first()
 
     lista_by_id = session.query(Lista).filter_by(id=saved_in_extra.lista_selecionada).first()
+    if lista_by_id == None:
+        return make_response(
+            jsonify(
+                message="Nenhuma lista foi selecionada. Não é possível retornar o nome."
+            ),
+            500
+        )
+    
     nome_lista = lista_by_id.nome
     session.close()
     return make_response(
@@ -186,8 +193,16 @@ def get_todas_tarefas_pertencentes():
     saved_in_extra = session.query(Extra).filter_by(id=1).first()
 
     lista_by_id = session.query(Lista).filter_by(id=saved_in_extra.lista_selecionada).first()
-    
+    if lista_by_id == None:
+        return make_response(
+            jsonify(
+                message="Nenhuma lista foi selecionada. Não é possível retornar as tarefas pertencentes."
+            ),
+            500
+        )
+
     todas_tarefas = session.query(Tarefa).filter_by(pertence_a=lista_by_id.id)
+
     lista_de_todas_tarefas = []
     for i in todas_tarefas:
         tarefa = {
@@ -205,58 +220,6 @@ def get_todas_tarefas_pertencentes():
             data={"data": lista_de_todas_tarefas}
         )
     )
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# @views.route("/tasks/status", methods=['POST'])
-# def salvar_status_checkbox():
-#     """
-#     Pega o submit do checkbox, e o id do checkbox hidden.
-#     Muda o status do checkbox de uma tarefa.
-#     """
-#     response = request.form.get('input3') # status da tarefa
-
-#     response2 = request.form.get('input4') #id da tarefa
-#     # print(type(response2))
-#     # print(response2)
-
-
-#     if response == "[]":
-#         Session = sessionmaker(bind=engine)
-#         session = Session()
-
-#         tarefa = session.query(Tarefa).filter_by(id=int(response2)).first()
-#         tarefa.status = True
-#         session.commit()
-        
-#         return {"data": f"1 e id={response2}"}
-#     elif response == "[X]":
-#         Session = sessionmaker(bind=engine)
-#         session = Session()
-
-#         tarefa = session.query(Tarefa).filter_by(id=int(response2)).first()
-#         tarefa.status = False
-#         session.commit()
-
-#         return {"data": f"2 e id={response2}"}
-#     else:
-#         return {"data": "deu ruim"}
 
 @views.route("/tasks/status", methods=['PUT'])
 def mudar_status_checkbox():
@@ -304,31 +267,6 @@ def mudar_status_checkbox():
             ),
             500
         )
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 @views.route("/lists/selected", methods=['DELETE'])
 def delete_lista():
