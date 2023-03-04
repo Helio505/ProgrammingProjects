@@ -1,4 +1,5 @@
 function resetPage() {
+    /* Reseta a página, e limpa o URL. */
     document.location.reload();
     window.location.href = "/";
 }
@@ -8,8 +9,9 @@ atualizarListaBtn.addEventListener("click", update_select);
 function update_select() {
     /*
         Atualiza a lista de listas.
-        -É acionada quando o botão atualizar listas é pressionado-
+        - É acionada quando o botão atualizar listas é pressionado.
     */
+
     var http = new XMLHttpRequest();
     var url = "http://127.0.0.1:5000/lists";
     var method = "GET";
@@ -42,10 +44,12 @@ function visualizar_lista() {
     */
         get_name_lista();
         get_tarefas_pertencentes();
-    }   
+}   
 
 
 function get_name_lista() {
+    /* Pega o nome da lista selecionada. */
+
     // Mandando request:
     var http = new XMLHttpRequest();
     var url = "http://127.0.0.1:5000/lists/selected/name";
@@ -77,6 +81,7 @@ function get_name_lista() {
 }
 
 function get_tarefas_pertencentes() {
+    /* Pega as tarefas pertencentes à lista selecionada. */
 
     const request = new XMLHttpRequest();
     request.open("GET", ("http://127.0.0.1:5000/lists/selected/tasks"));
@@ -119,6 +124,7 @@ function get_tarefas_pertencentes() {
 }
 
 function editNomeLista() {
+    /* Insere no HTML os elementos necessários para editar a lista selecionada. */
     document.getElementById("lista-title").innerHTML = (
         `
         <div id="div-edit">
@@ -133,7 +139,8 @@ function editNomeLista() {
     );
 }
 function editNomeListaRequest() {
-    
+    /* Manda o request para editar o nome da lista selecionada. */
+
     const newListName = document.querySelector("#list-title-input").value;
     
     let emptyName = ["", " ", "  ", "   ", "    "];
@@ -164,7 +171,7 @@ function editNomeListaRequest() {
     }));
 }
 
-/* Para criar lista */
+/* Para criar lista: */
 const buttonCriarLista = document.querySelector("#send-criar-lista");
 buttonCriarLista.addEventListener("click", function(e){
     e.preventDefault();
@@ -202,7 +209,7 @@ buttonCriarLista.addEventListener("click", function(e){
     document.querySelector("#input-criar-lista").value = null;
 });
 
-/* Para selecionar uma lista */
+/* Para selecionar uma lista: */
 const buttonSelecionarLista = document.querySelector("#button-select");
 buttonSelecionarLista.addEventListener("click", function(e){
     e.preventDefault();
@@ -233,7 +240,7 @@ buttonSelecionarLista.addEventListener("click", function(e){
     }));
 });
 
-/* Para criar tarefa */
+/* Para criar tarefa: */
 const buttonCriarTarefa = document.querySelector("#button-criar-tarefa");
 buttonCriarTarefa.addEventListener("click", function(e){
     e.preventDefault();
@@ -271,17 +278,9 @@ buttonCriarTarefa.addEventListener("click", function(e){
     document.querySelector("#input-content-tarefa").value = null;
 });
 
-/* Event listener e função para mudar o status da tarefa ao clicar: */
-const buttonTaskStatus = document.querySelector("#input-button");
-buttonTaskStatus.addEventListener("click", function () {
-    if (button.value === "[]") {
-        button.value = "[X]";
-    }else{
-        button.value = "[]";
-    }
-});
-
 function deleteLista(){
+    /* Deleta a lista selecionada. */
+
     // Mandando request:
     var http = new XMLHttpRequest();
     var url = "http://127.0.0.1:5000/lists/selected";
@@ -303,7 +302,7 @@ function deleteLista(){
     http.send();
 };
 
-
+/* Para deletar a tarefa: */
 const buttonDeleteTarefa = document.querySelector("#input-button-delete-tarefa");
 buttonDeleteTarefa.addEventListener("click", deletarTarefa); 
 function deletarTarefa(parameter){
@@ -331,6 +330,7 @@ function deletarTarefa(parameter){
 };
 
 function editTarefa(parameter) {
+    /* Insere no HTML os elementos necessários para editar a tarefa. */
     const hiddenInputId = parameter;
     
     var inputAndSubmit = (
@@ -346,6 +346,7 @@ function editTarefa(parameter) {
     document.getElementById(`div-edit-delete-tarefa${hiddenInputId}`).innerHTML = inputAndSubmit;
 }
 function editTarefaRequest(parameter) {
+    /* Manda o request para editar a tarefa. */
     const hiddenInputId = parameter;
     const newTarefaContent = document.querySelector("#tarefa-input").value;
     
@@ -376,7 +377,6 @@ function editTarefaRequest(parameter) {
         "conteúdo": newTarefaContent
     }));
 }
-
 
 function editTarefaStatus(par1, par2) {
     // Mandando request:
