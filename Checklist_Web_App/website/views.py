@@ -294,7 +294,7 @@ def delete_lista():
     # receber os dados aqui e mudar o nome da lista no banco de dados
     return {"data": "lista deletada com sucesso"}
     
-@views.route("/lists/selected", methods=["PUT"])
+@views.route("/lists/selected/name", methods=["PUT"])
 def edit_nome_lista():
     """
     Modifica o nome da lista selecionada.

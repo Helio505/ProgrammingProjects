@@ -149,7 +149,7 @@ function editNomeListaRequest() {
 
     // Mandando request:
     var http = new XMLHttpRequest();
-    var url = "http://127.0.0.1:5000/lists/selected";
+    var url = "http://127.0.0.1:5000/lists/selected/name";
     var method = "PUT";
     // alert(newListName)
     http.open(method, url);
