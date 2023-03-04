@@ -38,8 +38,8 @@ session = Session()
 # Para ter certeza que a tabela
 # extra tem somente um registro:
 # Testando se o registro inicial existe:
-a = session.query(Extra).filter_by(id=1).first()
-if a == None:
+registro = session.query(Extra).filter_by(id=1).first()
+if registro == None:
     session.add(Extra(id=1))
     session.commit()
 else:
@@ -58,6 +58,7 @@ def get_listas():
     """
     Session = sessionmaker(bind=engine)
     session = Session()
+    
     listas = []
     for i in session.query(Lista).order_by(Lista.id):
         lista = {
@@ -82,10 +83,10 @@ def inserir_lista():
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    response = request.json
+    request_data = request.json
 
     # Se lista já existe com esse nome:
-    if session.query(Lista).filter_by(nome=response['nome']).first() != None:
+    if session.query(Lista).filter_by(nome=request_data['nome']).first() != None:
         return make_response(
             jsonify(
                 message="Listas devem ter nomes únicos."
@@ -93,7 +94,7 @@ def inserir_lista():
             500
         )
     else:
-        lista_database = Lista(nome=response['nome'])
+        lista_database = Lista(nome=request_data['nome'])
         session.add(lista_database)
         session.commit()
         session.close()
@@ -113,11 +114,11 @@ def criar_tarefa():
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    response = request.json
+    request_data = request.json
 
     extra_database_saved_id_list = session.query(Extra).filter_by(id=1).first()
 
-    tarefa = Tarefa(nome="tarefa", conteúdo=response['conteúdo'], pertence_a=extra_database_saved_id_list.lista_selecionada, status=0)
+    tarefa = Tarefa(nome="tarefa", conteúdo=request_data['conteúdo'], pertence_a=extra_database_saved_id_list.lista_selecionada, status=0)
     session.add(tarefa)
     session.commit()
     session.close()
@@ -132,11 +133,11 @@ def selecionar_lista():
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    # Nesse response está a lista que foi selecionada agora:
-    response = request.json
+    # Nesse json_data está a lista que foi selecionada agora:
+    request_data = request.json
 
     # Achando o id pelo nome da lista selecionada:
-    lista_selecionada_nova = session.query(Lista).filter_by(nome=response['nome']).first()
+    lista_selecionada_nova = session.query(Lista).filter_by(nome=request_data['nome']).first()
 
     if lista_selecionada_nova == None:
         return make_response(
@@ -152,7 +153,7 @@ def selecionar_lista():
 
     session.commit()
     session.close()
-    return {"data": response}
+    return {"data": request_data}
 
 @views.route("/lists/selected/name", methods=['GET'])
 def get_nome_lista_selecionada():
@@ -228,9 +229,9 @@ def mudar_status_checkbox():
     Muda o status do checkbox de uma tarefa.
     """
     
-    request_json = request.json
-    id_tarefa = request_json['id_tarefa']
-    status_tarefa = request_json['status_tarefa']
+    request_data = request.json
+    id_tarefa = request_data['id_tarefa']
+    status_tarefa = request_data['status_tarefa']
 
     if  status_tarefa in [False, 0]:
         Session = sessionmaker(bind=engine)
@@ -302,11 +303,11 @@ def edit_nome_lista():
     Session = sessionmaker(bind=engine)
     session = Session()
     
-    request2 = request.json
-    nome = request2["nome"] # novo nome da lista
+    request_data = request.json
+    novo_nome = request_data["nome"]
 
     # Se lista já existe com esse nome:
-    if session.query(Lista).filter_by(nome=nome).first() != None:
+    if session.query(Lista).filter_by(nome=novo_nome).first() != None:
         return make_response(
             jsonify(
                 message="Listas devem ter nomes únicos."
@@ -319,7 +320,7 @@ def edit_nome_lista():
     id_lista_selecionada = session.query(Extra).filter_by(id=1).first().lista_selecionada
     
     lista_selecionada = session.query(Lista).filter_by(id=id_lista_selecionada).first()
-    lista_selecionada.nome = nome
+    lista_selecionada.nome = novo_nome
 
     session.commit()
     return {"result": "Lista modificaddddda."}
