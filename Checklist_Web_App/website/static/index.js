@@ -160,9 +160,9 @@ function editNomeListaRequest() {
             console.log(http.status);
             visualizar_lista();
             
-        }else if(http.readyState === XMLHttpRequest.DONE && http.status !== 200){
+        }else if(http.readyState === XMLHttpRequest.DONE && http.status === 500){
             console.log(http.status)
-            console.log("Error");
+            alert("Já existe uma lista com esse nome. Insira outro.")
         }
     }
     http.send(JSON.stringify({

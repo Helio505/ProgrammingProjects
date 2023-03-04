@@ -303,7 +303,17 @@ def edit_nome_lista():
     session = Session()
     
     request2 = request.json
-    nome = request2["nome"]
+    nome = request2["nome"] # novo nome da lista
+
+    # Se lista já existe com esse nome:
+    if session.query(Lista).filter_by(nome=nome).first() != None:
+        return make_response(
+            jsonify(
+                message="Listas devem ter nomes únicos."
+            ),
+            500
+        )
+
 
     # Id armazenada em extra:
     id_lista_selecionada = session.query(Extra).filter_by(id=1).first().lista_selecionada
