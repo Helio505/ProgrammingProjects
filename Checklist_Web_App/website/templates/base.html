@@ -21,6 +21,8 @@
             <div class="navbar-inside">
                 <a class="nav-title">Checklist Web App</a>
                 <button id="reset-button" type="button" class="nav-button" onclick="resetPage();">(Reset page)</button>
+                <button id="button-modo-escuro" type="button" class="nav-button" onclick="ativarModoEscuro();">Modo Escuro</button>
+                <button id="button-modo-default" type="button" class="nav-button" onclick="ativarModoDefault();">Modo Padrão</button>
             </div>
         </div>
     </nav>
@@ -28,6 +30,10 @@
         {% block content %}
         {% endblock %}
     </div>
+    <script
+        type="text/javascript"
+        src="{{url_for('static', filename='mudar-temas.js')}}">
+    </script>
     <script
         type="text/javascript"
         src="{{url_for('static', filename='index.js')}}">

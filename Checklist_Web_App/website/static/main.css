@@ -92,13 +92,15 @@ b{
 /* Atualizar lista botão:  */
 #atualizar-lista-button{
     background-color: #0078d7;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    position: relative;
+    top: 2px;
+
+    height: 38px;
+    width: 42px;
+
     font-size: larger;
     border-radius: 6px;
     cursor: pointer;
-
-    height: 42px;
 }
 #atualizar-lista-label{
     font-size: larger;
@@ -115,10 +117,12 @@ b{
     height: 50px;
 }
 #select{
-    border-radius: 6px;
     height: 40px;
     width: 200px;
+
     font-size: larger;
+    border-radius: 6px;
+    border: 1px solid;
 }
 #button-select{
     background-color: #0063BAEB;
@@ -153,10 +157,12 @@ b{
 }
 #button-criar-tarefa{
     background-color: #0063BAEB;
-    margin-top: 2px;
-    margin-left: 4px;
+    margin-top: 3px;
+    margin-left: 9px;
+
     height: 40px;
     width: 70px;
+
     border-radius: 6px;
     font-size: larger;
     cursor: pointer;
@@ -173,6 +179,7 @@ b{
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 8px;
 }
 #botão-visualizar-listas{
     display: flex;
@@ -209,6 +216,12 @@ b{
 	
     background-color: #212529;
 	border-radius: 10px;
+
+    width: fit-content;
+    padding-left: 20px;
+    padding-right: 33px;
+    padding-bottom: 20px;
+    
 }
 .lista-title{
     font-weight: bold;
@@ -222,13 +235,14 @@ b{
 }
 .tarefa-component{
     height: 40px;
-    width: 400px;
+    /* width: 400px; */
     margin: 7px;
 
     display: flex;
     flex-direction: row;
     background-color: #464a4e;
     border-radius: 10px;
+    width: 100%;
 }
 .tarefa-component-checkbox{
     position: relative;
@@ -313,9 +327,9 @@ b{
 .tarefa-component-content{
     position: relative;
     top: 10px;
-    /* left: 15px; */
     left: 26px;
     color: white;
+    padding-right: 30px;
 }
 
 
@@ -357,4 +371,3 @@ b{
     flex-direction: row;
     color: white;
 }
-

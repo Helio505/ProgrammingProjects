@@ -8,8 +8,8 @@
 <!-- Para criar a lista -->
 <div id="criação-lista-container">
     <form id="criação-lista-form-container" action="">
-        <input id="input-criar-lista" type="text" name="input_list" autocomplete="off"/> 
-        <input class="btn" id="send-criar-lista" type="submit" value="Criar">
+        <input id="input-criar-lista" class="primary-input" type="text" name="input_list" autocomplete="off" maxlength="60"/> 
+        <input id="send-criar-lista" class="primary-btn" type="submit" value="Criar">
         <label id="label-criar-lista" class="label" for="criação-lista-container">Criar lista</label>
     </form>
 </div>
@@ -17,12 +17,12 @@
 <!-- Menu de seleção para que a lista seja selecionada. -->
 <div id="container-select">    
     <form action="">
-        <select id="select" name="select">
+        <select id="select" class="primary-input" name="select">
             <!-- <option value="aaaa">aaaa</option> -->
         </select>
         <!-- <button type="button" id="atualizar-lista-button">Atualizar lista de listas;</button> -->
         <button type="button" id="atualizar-lista-button">&#128260;</button>
-        <input id="button-select" type="submit" value="Selecionar">
+        <input id="button-select" class="primary-btn" type="submit" value="Selecionar">
         <label id="label-select" class="label" for="select">Selecionar Lista</label>
     </form>  
 </div>
@@ -31,8 +31,8 @@
 <div id="div-criar-tarefa-form">
     <form id="criar-tarefa-form" action="">
         <!-- <button type="submit">aa</button> -->
-        <input id="input-content-tarefa" type="text" name="input_list2" autocomplete="off"/>
-        <button class="btn btn-primary" id="button-criar-tarefa" type="submit">Add</button>
+        <input id="input-content-tarefa" class="primary-input" type="text" name="input_list2" autocomplete="off" maxlength="60"/>
+        <button class="primary-btn" id="button-criar-tarefa" type="submit">Add</button>
         <label id="label-criar-tarefa" class="label" for="criar-tarefa">Criar tarefa</label>
     </form>
 </div>
@@ -41,13 +41,13 @@
 <div id="div-botão-visualizar-listas">
     <form id="botão-visualizar-listas">
         <div>
-            <button id="button-visualizar-listas" type="button" onclick="visualizar_lista();">Visualizar lista</button>
+            <button id="button-visualizar-listas" class="primary-btn" type="button" onclick="visualizar_lista();">Visualizar lista</button>
             <label id="label-visualizar-listas" class="label" for="visualizar-lista">Visualizar lista</label>
         </div>
     </form>
 </div>
 
-<p id="lista-selecionada">[LISTA SELECIONADA]</p>
+<p id="lista-selecionada" class="label">[LISTA SELECIONADA]</p>
 <!-- Bloco de codigo para renderizar as tarefas: -->
 <div class="div-component">
     <div class="lista-e-tarefa-component">
