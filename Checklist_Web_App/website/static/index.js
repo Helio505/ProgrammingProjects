@@ -1,3 +1,6 @@
+// Ao iniciar a aplicação:
+visualizar_lista();
+
 function resetPage() {
     /* Reseta a página, e limpa o URL. */
     document.location.reload();
@@ -196,6 +199,7 @@ buttonCriarLista.addEventListener("click", function(e){
     http.onreadystatechange = function() {
         if (http.readyState === XMLHttpRequest.DONE && http.status === 200) {
             console.log(http.status);
+            update_select();
             
         }else if(http.readyState === XMLHttpRequest.DONE && http.status === 500){
             console.log("Error");
