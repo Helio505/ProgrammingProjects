@@ -122,7 +122,8 @@ b{
 
     font-size: larger;
     border-radius: 6px;
-    border: 1px solid;
+    border-width: 2px;
+    border-color: black;
 }
 #button-select{
     background-color: #0063BAEB;

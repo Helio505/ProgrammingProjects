@@ -1,7 +1,7 @@
 // Ao iniciar, esses são os valores para os nav buttons de mudar tema:
-document.querySelector("#button-modo-default").style.color = "green";
-document.querySelector("#button-modo-default").style.borderColor = "green";
-document.querySelector("#button-modo-default").style.borderWidth = "5px";
+document.querySelector("#button-modo-default").style.color = "#0063BAEB";
+document.querySelector("#button-modo-default").style.borderColor = "#0063BAEB";
+document.querySelector("#button-modo-default").style.borderWidth = "4px";
 
 function resetarNavButtons() {
     document.querySelector("#button-modo-escuro").style.color = "white";
@@ -65,9 +65,9 @@ function ativarModoEscuro() {
     }
     
     // mudar o botão clicado:
-    document.querySelector("#button-modo-escuro").style.color = "green";
-    document.querySelector("#button-modo-escuro").style.borderColor = "green";
-    document.querySelector("#button-modo-escuro").style.borderWidth = "5px";
+    document.querySelector("#button-modo-escuro").style.color = "#0063BAEB";
+    document.querySelector("#button-modo-escuro").style.borderColor = "#0063BAEB";
+    document.querySelector("#button-modo-escuro").style.borderWidth = "4px";
 };
 
 function ativarModoDefault() {
@@ -122,7 +122,7 @@ function ativarModoDefault() {
     }
     
     // mudar o botão clicado:
-    document.querySelector("#button-modo-default").style.color = "green";
-    document.querySelector("#button-modo-default").style.borderColor = "green";
-    document.querySelector("#button-modo-default").style.borderWidth = "5px";
+    document.querySelector("#button-modo-default").style.color = "#0063BAEB";
+    document.querySelector("#button-modo-default").style.borderColor = "#0063BAEB";
+    document.querySelector("#button-modo-default").style.borderWidth = "4px";
 };
