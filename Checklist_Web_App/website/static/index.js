@@ -341,8 +341,8 @@ function editTarefa(parameter) {
         `
         <div id="div-edit">
             <form action="">
-                    <input id="tarefa-input" type="text">
-                    <input id="button4" type="button" value="Salvar" onclick="editTarefaRequest(${hiddenInputId});">
+                <input id="tarefa-input" type="text">
+                <input id="button4" type="button" value="Salvar" onclick="editTarefaRequest(${hiddenInputId});">
             </form>
         </div>
         `

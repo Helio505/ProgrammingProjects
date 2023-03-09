@@ -274,7 +274,7 @@ b{
     border-color: yellow;
     background-color: #464a4e;
     color: green;
-    border: 1px solid #000;
+    border: 1px solid transparent;
     height: 20px;
     display: flex;
     flex-direction: row;
@@ -385,4 +385,9 @@ b{
 #list-title-input{
     position: relative;
     left: 9px;
+    margin-right: -3px;
+}
+
+#tarefa-input{
+    margin-right: -7px;
 }
