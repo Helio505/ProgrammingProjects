@@ -378,3 +378,11 @@ b{
     flex-direction: row;
     color: white;
 }
+#form-edit-delete-tarefa{
+    position: relative;
+    bottom: 3px;
+}
+#list-title-input{
+    position: relative;
+    left: 9px;
+}

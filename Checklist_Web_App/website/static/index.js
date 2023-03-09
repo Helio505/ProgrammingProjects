@@ -133,11 +133,9 @@ function editNomeLista() {
     document.getElementById("lista-title").innerHTML = (
         `
         <div id="div-edit">
-            <form action="">
-             
-                    <input id="list-title-input" type="text">
-                    <input id="button3" type="button" value="Salvar" onclick="editNomeListaRequest();">
-
+            <form action="" id="form-edit-delete-tarefa">
+                <input id="list-title-input" type="text">
+                <input id="button3" type="button" value="Salvar" onclick="editNomeListaRequest();">
             </form>
         </div>
         `
