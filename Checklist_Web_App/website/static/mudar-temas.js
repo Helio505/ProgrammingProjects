@@ -68,6 +68,9 @@ function ativarModoEscuro() {
     document.querySelector("#button-modo-escuro").style.color = "#0063BAEB";
     document.querySelector("#button-modo-escuro").style.borderColor = "#0063BAEB";
     document.querySelector("#button-modo-escuro").style.borderWidth = "4px";
+
+    // mudar o botão de atualizar lista de listas:
+    document.querySelector("#atualizar-lista-button").style.borderColor = "white";
 };
 
 function ativarModoDefault() {
@@ -125,4 +128,7 @@ function ativarModoDefault() {
     document.querySelector("#button-modo-default").style.color = "#0063BAEB";
     document.querySelector("#button-modo-default").style.borderColor = "#0063BAEB";
     document.querySelector("#button-modo-default").style.borderWidth = "4px";
+
+    // mudar o botão de atualizar lista de listas:
+    document.querySelector("#atualizar-lista-button").style.borderColor = "black";
 };
