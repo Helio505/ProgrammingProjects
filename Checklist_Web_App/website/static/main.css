@@ -70,7 +70,7 @@ b{
 #input-criar-lista{
     border-radius: 6px;
 
-    height: 40px;
+    height: 36px;
     width: 200px;
     font-size: larger;
 }
@@ -157,14 +157,14 @@ b{
 #input-content-tarefa{
     border-radius: 6px;
     font-size: larger;
-    height: 40px;
+    height: 36px;
 }
 #input-content-tarefa::placeholder{
     color: #8d8d8d;
 }
 #button-criar-tarefa{
     background-color: #0063BAEB;
-    margin-top: 3px;
+    margin-top: 1px;
     margin-left: 9px;
 
     height: 40px;
