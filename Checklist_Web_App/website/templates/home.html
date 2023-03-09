@@ -8,7 +8,11 @@
 <!-- Para criar a lista -->
 <div id="criação-lista-container">
     <form id="criação-lista-form-container" action="">
-        <input id="input-criar-lista" class="primary-input" type="text" name="input_list" autocomplete="off" maxlength="60"/> 
+        <input
+            id="input-criar-lista" class="primary-input"
+            type="text" name="input_list" autocomplete="off"
+            maxlength="60" placeholder="nome lista"
+        /> 
         <input id="send-criar-lista" class="primary-btn" type="submit" value="Criar">
         <label id="label-criar-lista" class="label" for="criação-lista-container">Criar lista</label>
     </form>
@@ -17,8 +21,8 @@
 <!-- Menu de seleção para que a lista seja selecionada. -->
 <div id="container-select">    
     <form action="">
-        <select id="select" class="primary-input" name="select">
-            <!-- <option value="aaaa">aaaa</option> -->
+        <select id="select" class="primary-input" name="select" style="color: #8d8d8d;">
+            <option>escolha aqui</option>
         </select>
         <!-- <button type="button" id="atualizar-lista-button">Atualizar lista de listas;</button> -->
         <button type="button" id="atualizar-lista-button">&#128260;</button>
@@ -31,7 +35,11 @@
 <div id="div-criar-tarefa-form">
     <form id="criar-tarefa-form" action="">
         <!-- <button type="submit">aa</button> -->
-        <input id="input-content-tarefa" class="primary-input" type="text" name="input_list2" autocomplete="off" maxlength="60"/>
+        <input
+            id="input-content-tarefa" class="primary-input"
+            type="text" name="input_list2" autocomplete="off"
+            maxlength="60" placeholder="conteúdo tarefa"
+        />
         <button class="primary-btn" id="button-criar-tarefa" type="submit">Add</button>
         <label id="label-criar-tarefa" class="label" for="criar-tarefa">Criar tarefa</label>
     </form>

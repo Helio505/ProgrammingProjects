@@ -14,6 +14,8 @@ function update_select() {
         Atualiza a lista de listas.
         - É acionada quando o botão atualizar listas é pressionado.
     */
+    document.querySelector("#select").style.color = "black";
+    document.querySelector("#select").style.color = "black";
 
     var http = new XMLHttpRequest();
     var url = "http://127.0.0.1:5000/lists";
