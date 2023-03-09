@@ -70,15 +70,15 @@ b{
     border-radius: 6px;
 
     height: 36px;
-    width: 200px;
+    width: 230px;
     font-size: larger;
 }
 #input-criar-lista::placeholder{
     color: rgb(141, 141, 141);
 }
 #send-criar-lista{
-    height: 40px;
-    width: 200px;
+    height: 42px;
+    width: 230px;
     font-size: larger;
     background-color: #0063BAEB;
     color: black;
@@ -97,7 +97,7 @@ b{
     position: relative;
     top: 2px;
 
-    height: 38px;
+    height: 42px;
     width: 42px;
 
     font-size: larger;
@@ -119,8 +119,8 @@ b{
     height: 50px;
 }
 #select{
-    height: 40px;
-    width: 200px;
+    height: 42px;
+    width: 230px;
 
     font-size: larger;
     border-radius: 6px;
@@ -130,7 +130,7 @@ b{
 #button-select{
     background-color: #0063BAEB;
     border-radius: 6px;
-    height: 40px;
+    height: 42px;
     width: 135px;
     font-size: larger;
     cursor: pointer;
@@ -166,7 +166,7 @@ b{
     margin-top: 1px;
     margin-left: 9px;
 
-    height: 40px;
+    height: 42px;
     width: 72px;
 
     border-radius: 6px;
