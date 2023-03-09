@@ -1,7 +1,35 @@
-// Ao iniciar, esses são os valores para os nav buttons de mudar tema:
-document.querySelector("#button-modo-default").style.color = "#0063BAEB";
-document.querySelector("#button-modo-default").style.borderColor = "#0063BAEB";
-document.querySelector("#button-modo-default").style.borderWidth = "4px";
+// Após 200 ms, muda para o tema salvo.
+setTimeout(() => {
+    function getCookie(cookieName) {
+        if (document.cookie.length != 0){
+            var array = document.cookie.split("=");
+            // alert("Tema=" + array[0] + " " + "Value=" + array[1]);
+            // alert(array[1])
+            console.log(array[1])
+            console.log(typeof(array[1]))
+            return array[1]
+        }else{
+            return null
+        }
+    }
+
+    if (getCookie() == "escuro"){
+        const btnEscuro = document.querySelector("#button-modo-escuro");
+        btnEscuro.style.color = "#0063BAEB";
+        btnEscuro.style.borderColor = "#0063BAEB";
+        btnEscuro.style.borderWidth = "4px";
+
+        ativarModoEscuro();
+    }else{
+        const btnDefault = document.querySelector("#button-modo-default");
+        btnDefault.style.color = "#0063BAEB";
+        btnDefault.style.borderColor = "#0063BAEB";
+        btnDefault.style.borderWidth = "4px";
+
+        ativarModoDefault();
+    }
+}, 200);
+
 
 function resetarNavButtons() {
     document.querySelector("#button-modo-escuro").style.color = "white";
@@ -71,6 +99,8 @@ function ativarModoEscuro() {
 
     // mudar o botão de atualizar lista de listas:
     document.querySelector("#atualizar-lista-button").style.borderColor = "white";
+
+    document.cookie = "Tema=escuro";
 };
 
 function ativarModoDefault() {
@@ -131,4 +161,6 @@ function ativarModoDefault() {
 
     // mudar o botão de atualizar lista de listas:
     document.querySelector("#atualizar-lista-button").style.borderColor = "black";
+
+    document.cookie = "Tema=default";
 };
