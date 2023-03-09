@@ -128,9 +128,6 @@ b{
     border-width: 2px;
     border-color: black;
 }
-#select-option-placeholder{
-    color: red;
-}
 #button-select{
     background-color: #0063BAEB;
     border-radius: 6px;
@@ -163,7 +160,7 @@ b{
     height: 40px;
 }
 #input-content-tarefa::placeholder{
-    color: rgb(141, 141, 141);
+    color: #8d8d8d;
 }
 #button-criar-tarefa{
     background-color: #0063BAEB;
