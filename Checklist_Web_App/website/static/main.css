@@ -391,3 +391,9 @@ b{
 #tarefa-input{
     margin-right: -7px;
 }
+
+@media (max-width: 800px) {
+    .tarefa-component-content {
+        font-size: smaller;
+    }
+}
