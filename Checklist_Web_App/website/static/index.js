@@ -134,7 +134,7 @@ function editNomeLista() {
         `
         <div id="div-edit">
             <form action="" id="form-edit-delete-tarefa">
-                <input id="list-title-input" type="text">
+                <input id="list-title-input" type="text" placeholder="novo nome">
                 <input id="button3" type="button" value="Salvar" onclick="editNomeListaRequest();">
             </form>
         </div>
@@ -341,7 +341,7 @@ function editTarefa(parameter) {
         `
         <div id="div-edit">
             <form action="">
-                <input id="tarefa-input" type="text">
+                <input id="tarefa-input" type="text" placeholder="novo conteúdo">
                 <input id="button4" type="button" value="Salvar" onclick="editTarefaRequest(${hiddenInputId});">
             </form>
         </div>
