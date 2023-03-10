@@ -1,5 +1,11 @@
 // Ao iniciar a aplicação:
-visualizar_lista();
+function onStart() {
+    setTimeout(() => {
+        atualizarListaDeListas();
+        abrirLista();
+    }, 200);
+}
+onStart();
 
 function resetPage() {
     /* Reseta a página, e limpa o URL. */
@@ -7,13 +13,12 @@ function resetPage() {
     window.location.href = "/";
 }
 
-const atualizarListaBtn = document.querySelector("#atualizar-lista-button");
-atualizarListaBtn.addEventListener("click", update_select);
-function update_select() {
+function atualizarListaDeListas() {
     /*
         Atualiza a lista de listas.
         - É acionada quando o botão atualizar listas é pressionado.
     */
+    document.querySelector("#select").style.color = "black";
 
     var http = new XMLHttpRequest();
     var url = "http://127.0.0.1:5000/lists";
@@ -34,23 +39,33 @@ function update_select() {
             }
 
         }else if(http.readyState === XMLHttpRequest.DONE && http.status !== 200){
-            console.log("Error");
+            console.log(http.status);
         }
     }
     http.send();
 }
 
-
-function visualizar_lista() {
-    /*
-        Mostra a lista selecionada, e suas tarefas.
-    */
-        get_name_lista();
-        get_tarefas_pertencentes();
+function abrirLista() {
+    /* Mostra a lista selecionada, e suas tarefas. */
+    criarVisualizarListaContainer();
+    getNomeLista();
+    getTarefasPertencentes();
 }   
 
+function criarVisualizarListaContainer() {
+    document.querySelector("#div-lista-title").innerHTML = (
+        `
+        <div id="div-edit-delete-lista">
+            <input id="input-button-edit-lista" type="button" value="Edit" onclick="editNomeLista();">
+            <input id="input-button-delete-lista" type="button" value="Del" onclick="deleteLista();">
+        </div>
+        <div class="lista-title" id="lista-title">
+            <p style="background-color: transparent; color: transparent; margin: 0%;" >aaaaa</p>
+        </div>
+        `);
+}
 
-function get_name_lista() {
+function getNomeLista() {
     /* Pega o nome da lista selecionada. */
 
     // Mandando request:
@@ -77,13 +92,13 @@ function get_name_lista() {
             </div>`);
                
         }else if(http.readyState === XMLHttpRequest.DONE && http.status !== 200){
-            console.log("Error");
+            console.log(http.status);
         }
     }
     http.send();
 }
 
-function get_tarefas_pertencentes() {
+function getTarefasPertencentes() {
     /* Pega as tarefas pertencentes à lista selecionada. */
 
     const request = new XMLHttpRequest();
@@ -131,11 +146,9 @@ function editNomeLista() {
     document.getElementById("lista-title").innerHTML = (
         `
         <div id="div-edit">
-            <form action="">
-             
-                    <input id="list-title-input" type="text">
-                    <input id="button3" type="button" value="Editar" onclick="editNomeListaRequest();">
-
+            <form action="" id="form-edit-delete-tarefa">
+                <input id="list-title-input" type="text" placeholder="novo nome">
+                <input id="button3" type="button" value="Salvar" onclick="editNomeListaRequest();">
             </form>
         </div>
         `
@@ -143,6 +156,7 @@ function editNomeLista() {
 }
 function editNomeListaRequest() {
     /* Manda o request para editar o nome da lista selecionada. */
+    atualizarListaDeListas();
 
     const newListName = document.querySelector("#list-title-input").value;
     
@@ -162,7 +176,7 @@ function editNomeListaRequest() {
     http.onreadystatechange = function() {
         if (http.readyState === XMLHttpRequest.DONE && http.status === 200) {
             console.log(http.status);
-            visualizar_lista();
+            abrirLista();
             
         }else if(http.readyState === XMLHttpRequest.DONE && http.status === 500){
             console.log(http.status)
@@ -197,12 +211,12 @@ buttonCriarLista.addEventListener("click", function(e){
     http.open(method, url);
     http.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
     http.onreadystatechange = function() {
+        atualizarListaDeListas();
         if (http.readyState === XMLHttpRequest.DONE && http.status === 200) {
             console.log(http.status);
-            update_select();
             
         }else if(http.readyState === XMLHttpRequest.DONE && http.status === 500){
-            console.log("Error");
+            console.log(http.status);
             alert("Lista não criada: Listas devem ter nomes únicos.")
         }
     }
@@ -221,8 +235,6 @@ buttonSelecionarLista.addEventListener("click", function(e){
     const select = document.querySelector("#select");
     const selectValue = select.value;
 
-    console.log(selectValue);
-
     // Mandando request:
     var http = new XMLHttpRequest();
     var url = "http://127.0.0.1:5000/extra/list/selected/id";
@@ -231,12 +243,13 @@ buttonSelecionarLista.addEventListener("click", function(e){
     http.open(method, url);
     http.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
     http.onreadystatechange = function() {
+        atualizarListaDeListas();
+        abrirLista();
         if (http.readyState === XMLHttpRequest.DONE && http.status === 200) {
             console.log(http.status)
-            get_name_lista();
             
         }else if(http.readyState === XMLHttpRequest.DONE && http.status !== 200){
-            console.log("Error");
+            console.log(http.status);
         }
     }
     http.send(JSON.stringify({
@@ -266,13 +279,13 @@ buttonCriarTarefa.addEventListener("click", function(e){
     http.open(method, url);
     http.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
     http.onreadystatechange = function() {
+        atualizarListaDeListas();
         if (http.readyState === XMLHttpRequest.DONE && http.status === 200) {
             console.log(http.status)
-            visualizar_lista();
+            abrirLista();
             
         }else if(http.readyState === XMLHttpRequest.DONE && http.status !== 200){
             console.log(http.status);
-            console.log("Error");
         }
     }
     http.send(JSON.stringify({
@@ -300,7 +313,6 @@ function deleteLista(){
             
         }else if(http.readyState === XMLHttpRequest.DONE && http.status !== 200){
             console.log(http.status);
-            console.log("Error");
         }
     }
     http.send();
@@ -323,11 +335,10 @@ function deletarTarefa(parameter){
     http.onreadystatechange = function() {
         if (http.readyState === XMLHttpRequest.DONE && http.status === 200) {
             console.log(http.status);
-            visualizar_lista();
+            abrirLista();
             
         }else if(http.readyState === XMLHttpRequest.DONE && http.status !== 200){
             console.log(http.status);
-            console.log("Error");
         }
     }
     http.send();
@@ -341,8 +352,8 @@ function editTarefa(parameter) {
         `
         <div id="div-edit">
             <form action="">
-                    <input id="tarefa-input" type="text">
-                    <input id="button4" type="button" value="Submit" onclick="editTarefaRequest(${hiddenInputId});">
+                <input id="tarefa-input" type="text" placeholder="novo conteúdo">
+                <input id="button4" type="button" value="Salvar" onclick="editTarefaRequest(${hiddenInputId});">
             </form>
         </div>
         `
@@ -357,6 +368,7 @@ function editTarefaRequest(parameter) {
     let emptyName = ["", " ", "  ", "   ", "    "];
     if (emptyName.includes(newTarefaContent)) {
         alert("Insira algum conteúdo válido para a tarefa.")
+        abrirLista();
         return
     }
 
@@ -368,13 +380,12 @@ function editTarefaRequest(parameter) {
     http.open(method, url);
     http.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
     http.onreadystatechange = function() {
+        abrirLista();
         if (http.readyState === XMLHttpRequest.DONE && http.status === 200) {
             console.log(http.status)
-            visualizar_lista();
             
         }else if(http.readyState === XMLHttpRequest.DONE && http.status !== 200){
             console.log(http.status)
-            console.log("Error");
         }
     }
     http.send(JSON.stringify({
@@ -393,11 +404,10 @@ function editTarefaStatus(par1, par2) {
     http.onreadystatechange = function() {
         if (http.readyState === XMLHttpRequest.DONE && http.status === 200) {
             console.log(http.status)
-            visualizar_lista();
+            abrirLista();
             
         }else if(http.readyState === XMLHttpRequest.DONE && http.status !== 200){
             console.log(http.status)
-            console.log("Error");
         }
     }
     http.send(JSON.stringify({
