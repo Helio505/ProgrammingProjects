@@ -111,7 +111,7 @@ b{
 
 /* Criar lista: */
 #container-select{
-    margin-left: 5px;
+    margin-left: 8px;
 	
 	display: flex;
     flex-direction: column;
@@ -120,7 +120,7 @@ b{
 }
 #select{
     height: 42px;
-    width: 230px;
+    width: 237px;
 
     font-size: larger;
     border-radius: 6px;
@@ -157,6 +157,7 @@ b{
     border-radius: 6px;
     font-size: larger;
     height: 36px;
+    width: 230px;
 }
 #input-content-tarefa::placeholder{
     color: #8d8d8d;

@@ -2,6 +2,7 @@
 function onStart() {
     setTimeout(() => {
         atualizarListaDeListas();
+        abrirLista();
     }, 200);
 }
 onStart();
@@ -45,12 +46,10 @@ function atualizarListaDeListas() {
 }
 
 function abrirLista() {
-    /*
-        Mostra a lista selecionada, e suas tarefas.
-    */
-        criarVisualizarListaContainer();
-        getNomeLista();
-        getTarefasPertencentes();
+    /* Mostra a lista selecionada, e suas tarefas. */
+    criarVisualizarListaContainer();
+    getNomeLista();
+    getTarefasPertencentes();
 }   
 
 function criarVisualizarListaContainer() {
@@ -247,6 +246,7 @@ buttonSelecionarLista.addEventListener("click", function(e){
     http.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
     http.onreadystatechange = function() {
         atualizarListaDeListas();
+        abrirLista();
         if (http.readyState === XMLHttpRequest.DONE && http.status === 200) {
             console.log(http.status)
             
@@ -373,6 +373,7 @@ function editTarefaRequest(parameter) {
     let emptyName = ["", " ", "  ", "   ", "    "];
     if (emptyName.includes(newTarefaContent)) {
         alert("Insira algum conteúdo válido para a tarefa.")
+        abrirLista();
         return
     }
 
@@ -384,9 +385,9 @@ function editTarefaRequest(parameter) {
     http.open(method, url);
     http.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
     http.onreadystatechange = function() {
+        abrirLista();
         if (http.readyState === XMLHttpRequest.DONE && http.status === 200) {
             console.log(http.status)
-            abrirLista();
             
         }else if(http.readyState === XMLHttpRequest.DONE && http.status !== 200){
             console.log(http.status)
