@@ -1,5 +1,10 @@
 // Ao iniciar a aplicação:
-// abrirLista();
+function onStart() {
+    setTimeout(() => {
+        atualizarListaDeListas();
+    }, 200);
+}
+onStart();
 
 function resetPage() {
     /* Reseta a página, e limpa o URL. */
@@ -7,14 +12,11 @@ function resetPage() {
     window.location.href = "/";
 }
 
-const atualizarListaBtn = document.querySelector("#atualizar-lista-button");
-atualizarListaBtn.addEventListener("click", atualizarListaDeListas);
 function atualizarListaDeListas() {
     /*
         Atualiza a lista de listas.
         - É acionada quando o botão atualizar listas é pressionado.
     */
-    document.querySelector("#select").style.color = "black";
     document.querySelector("#select").style.color = "black";
 
     var http = new XMLHttpRequest();
@@ -41,7 +43,6 @@ function atualizarListaDeListas() {
     }
     http.send();
 }
-
 
 function abrirLista() {
     /*
@@ -156,6 +157,7 @@ function editNomeLista() {
 }
 function editNomeListaRequest() {
     /* Manda o request para editar o nome da lista selecionada. */
+    atualizarListaDeListas();
 
     const newListName = document.querySelector("#list-title-input").value;
     
@@ -210,9 +212,9 @@ buttonCriarLista.addEventListener("click", function(e){
     http.open(method, url);
     http.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
     http.onreadystatechange = function() {
+        atualizarListaDeListas();
         if (http.readyState === XMLHttpRequest.DONE && http.status === 200) {
             console.log(http.status);
-            atualizarListaDeListas();
             
         }else if(http.readyState === XMLHttpRequest.DONE && http.status === 500){
             console.log("Error");
@@ -244,9 +246,9 @@ buttonSelecionarLista.addEventListener("click", function(e){
     http.open(method, url);
     http.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
     http.onreadystatechange = function() {
+        atualizarListaDeListas();
         if (http.readyState === XMLHttpRequest.DONE && http.status === 200) {
             console.log(http.status)
-            getNomeLista();
             
         }else if(http.readyState === XMLHttpRequest.DONE && http.status !== 200){
             console.log("Error");
@@ -279,6 +281,7 @@ buttonCriarTarefa.addEventListener("click", function(e){
     http.open(method, url);
     http.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
     http.onreadystatechange = function() {
+        atualizarListaDeListas();
         if (http.readyState === XMLHttpRequest.DONE && http.status === 200) {
             console.log(http.status)
             abrirLista();

@@ -24,24 +24,19 @@
         <select id="select" class="primary-input" name="select" style="color: #8d8d8d;">
             <option>escolha aqui</option>
         </select>
-        <!-- <button type="button" id="atualizar-lista-button">Atualizar lista de listas;</button> -->
-        <button type="button" id="atualizar-lista-button">&#128260;</button>
         <input id="button-select" class="primary-btn" type="submit" value="Selecionar">
-        <!-- <label id="label-select" class="label" for="select">Selecionar Lista</label> -->
     </form>  
 </div>
 
 <!-- Para criar a tarefa e inserir o conteúdo -->
 <div id="div-criar-tarefa-form">
     <form id="criar-tarefa-form" action="">
-        <!-- <button type="submit">aa</button> -->
         <input
             id="input-content-tarefa" class="primary-input"
             type="text" name="input_list2" autocomplete="off"
             maxlength="60" placeholder="conteúdo tarefa"
         />
         <button class="primary-btn" id="button-criar-tarefa" type="submit">Criar</button>
-        <!-- <label id="label-criar-tarefa" class="label" for="criar-tarefa">Criar tarefa</label> -->
     </form>
 </div>
 
@@ -50,12 +45,11 @@
     <form id="botão-visualizar-listas">
         <div>
             <button id="button-visualizar-listas" class="primary-btn" type="button" onclick="abrirLista();">Visualizar lista</button>
-            <!-- <label id="label-visualizar-listas" class="label" for="visualizar-lista">Visualizar lista</label> -->
         </div>
     </form>
 </div>
 
-<p id="lista-selecionada" class="label">[LISTA SELECIONADA]</p>
+<p id="lista-selecionada" class="label"></p>
 <!-- Bloco de codigo para renderizar as tarefas: -->
 <div class="div-component">
     <div class="lista-e-tarefa-component">
