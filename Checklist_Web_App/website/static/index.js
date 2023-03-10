@@ -1,5 +1,5 @@
 // Ao iniciar a aplicação:
-// visualizar_lista();
+// abrirLista();
 
 function resetPage() {
     /* Reseta a página, e limpa o URL. */
@@ -8,8 +8,8 @@ function resetPage() {
 }
 
 const atualizarListaBtn = document.querySelector("#atualizar-lista-button");
-atualizarListaBtn.addEventListener("click", update_select);
-function update_select() {
+atualizarListaBtn.addEventListener("click", atualizarListaDeListas);
+function atualizarListaDeListas() {
     /*
         Atualiza a lista de listas.
         - É acionada quando o botão atualizar listas é pressionado.
@@ -43,13 +43,13 @@ function update_select() {
 }
 
 
-function visualizar_lista() {
+function abrirLista() {
     /*
         Mostra a lista selecionada, e suas tarefas.
     */
         criarVisualizarListaContainer();
-        get_name_lista();
-        get_tarefas_pertencentes();
+        getNomeLista();
+        getTarefasPertencentes();
 }   
 
 function criarVisualizarListaContainer() {
@@ -65,7 +65,7 @@ function criarVisualizarListaContainer() {
         `);
 }
 
-function get_name_lista() {
+function getNomeLista() {
     /* Pega o nome da lista selecionada. */
 
     // Mandando request:
@@ -98,7 +98,7 @@ function get_name_lista() {
     http.send();
 }
 
-function get_tarefas_pertencentes() {
+function getTarefasPertencentes() {
     /* Pega as tarefas pertencentes à lista selecionada. */
 
     const request = new XMLHttpRequest();
@@ -175,7 +175,7 @@ function editNomeListaRequest() {
     http.onreadystatechange = function() {
         if (http.readyState === XMLHttpRequest.DONE && http.status === 200) {
             console.log(http.status);
-            visualizar_lista();
+            abrirLista();
             
         }else if(http.readyState === XMLHttpRequest.DONE && http.status === 500){
             console.log(http.status)
@@ -212,7 +212,7 @@ buttonCriarLista.addEventListener("click", function(e){
     http.onreadystatechange = function() {
         if (http.readyState === XMLHttpRequest.DONE && http.status === 200) {
             console.log(http.status);
-            update_select();
+            atualizarListaDeListas();
             
         }else if(http.readyState === XMLHttpRequest.DONE && http.status === 500){
             console.log("Error");
@@ -246,7 +246,7 @@ buttonSelecionarLista.addEventListener("click", function(e){
     http.onreadystatechange = function() {
         if (http.readyState === XMLHttpRequest.DONE && http.status === 200) {
             console.log(http.status)
-            get_name_lista();
+            getNomeLista();
             
         }else if(http.readyState === XMLHttpRequest.DONE && http.status !== 200){
             console.log("Error");
@@ -281,7 +281,7 @@ buttonCriarTarefa.addEventListener("click", function(e){
     http.onreadystatechange = function() {
         if (http.readyState === XMLHttpRequest.DONE && http.status === 200) {
             console.log(http.status)
-            visualizar_lista();
+            abrirLista();
             
         }else if(http.readyState === XMLHttpRequest.DONE && http.status !== 200){
             console.log(http.status);
@@ -336,7 +336,7 @@ function deletarTarefa(parameter){
     http.onreadystatechange = function() {
         if (http.readyState === XMLHttpRequest.DONE && http.status === 200) {
             console.log(http.status);
-            visualizar_lista();
+            abrirLista();
             
         }else if(http.readyState === XMLHttpRequest.DONE && http.status !== 200){
             console.log(http.status);
@@ -383,7 +383,7 @@ function editTarefaRequest(parameter) {
     http.onreadystatechange = function() {
         if (http.readyState === XMLHttpRequest.DONE && http.status === 200) {
             console.log(http.status)
-            visualizar_lista();
+            abrirLista();
             
         }else if(http.readyState === XMLHttpRequest.DONE && http.status !== 200){
             console.log(http.status)
@@ -406,7 +406,7 @@ function editTarefaStatus(par1, par2) {
     http.onreadystatechange = function() {
         if (http.readyState === XMLHttpRequest.DONE && http.status === 200) {
             console.log(http.status)
-            visualizar_lista();
+            abrirLista();
             
         }else if(http.readyState === XMLHttpRequest.DONE && http.status !== 200){
             console.log(http.status)
