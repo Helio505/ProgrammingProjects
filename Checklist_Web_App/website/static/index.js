@@ -39,7 +39,7 @@ function atualizarListaDeListas() {
             }
 
         }else if(http.readyState === XMLHttpRequest.DONE && http.status !== 200){
-            console.log("Error");
+            console.log(http.status);
         }
     }
     http.send();
@@ -92,7 +92,7 @@ function getNomeLista() {
             </div>`);
                
         }else if(http.readyState === XMLHttpRequest.DONE && http.status !== 200){
-            console.log("Error");
+            console.log(http.status);
         }
     }
     http.send();
@@ -216,7 +216,7 @@ buttonCriarLista.addEventListener("click", function(e){
             console.log(http.status);
             
         }else if(http.readyState === XMLHttpRequest.DONE && http.status === 500){
-            console.log("Error");
+            console.log(http.status);
             alert("Lista não criada: Listas devem ter nomes únicos.")
         }
     }
@@ -235,8 +235,6 @@ buttonSelecionarLista.addEventListener("click", function(e){
     const select = document.querySelector("#select");
     const selectValue = select.value;
 
-    console.log(selectValue);
-
     // Mandando request:
     var http = new XMLHttpRequest();
     var url = "http://127.0.0.1:5000/extra/list/selected/id";
@@ -251,7 +249,7 @@ buttonSelecionarLista.addEventListener("click", function(e){
             console.log(http.status)
             
         }else if(http.readyState === XMLHttpRequest.DONE && http.status !== 200){
-            console.log("Error");
+            console.log(http.status);
         }
     }
     http.send(JSON.stringify({
@@ -288,7 +286,6 @@ buttonCriarTarefa.addEventListener("click", function(e){
             
         }else if(http.readyState === XMLHttpRequest.DONE && http.status !== 200){
             console.log(http.status);
-            console.log("Error");
         }
     }
     http.send(JSON.stringify({
@@ -316,7 +313,6 @@ function deleteLista(){
             
         }else if(http.readyState === XMLHttpRequest.DONE && http.status !== 200){
             console.log(http.status);
-            console.log("Error");
         }
     }
     http.send();
@@ -343,7 +339,6 @@ function deletarTarefa(parameter){
             
         }else if(http.readyState === XMLHttpRequest.DONE && http.status !== 200){
             console.log(http.status);
-            console.log("Error");
         }
     }
     http.send();
@@ -391,7 +386,6 @@ function editTarefaRequest(parameter) {
             
         }else if(http.readyState === XMLHttpRequest.DONE && http.status !== 200){
             console.log(http.status)
-            console.log("Error");
         }
     }
     http.send(JSON.stringify({
@@ -414,7 +408,6 @@ function editTarefaStatus(par1, par2) {
             
         }else if(http.readyState === XMLHttpRequest.DONE && http.status !== 200){
             console.log(http.status)
-            console.log("Error");
         }
     }
     http.send(JSON.stringify({

@@ -3,10 +3,6 @@ setTimeout(() => {
     function getCookie(cookieName) {
         if (document.cookie.length != 0){
             var array = document.cookie.split("=");
-            // alert("Tema=" + array[0] + " " + "Value=" + array[1]);
-            // alert(array[1])
-            console.log(array[1])
-            console.log(typeof(array[1]))
             return array[1]
         }else{
             return null
