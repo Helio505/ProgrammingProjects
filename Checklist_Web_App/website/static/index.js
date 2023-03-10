@@ -60,7 +60,7 @@ function criarVisualizarListaContainer() {
             <input id="input-button-delete-lista" type="button" value="Del" onclick="deleteLista();">
         </div>
         <div class="lista-title" id="lista-title">
-            
+            <p style="background-color: transparent; color: transparent; margin: 0%;" >aaaaa</p>
         </div>
         `);
 }
