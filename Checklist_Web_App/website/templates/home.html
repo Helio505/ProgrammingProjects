@@ -8,32 +8,62 @@
 <!-- Para criar a lista -->
 <div id="criação-lista-container">
     <form id="criação-lista-form-container" action="">
-        <input id="input-criar-lista" type="text" name="input_list" autocomplete="off"/> 
-        <input class="btn" id="send-criar-lista" type="submit" value="Criar">
-        <label id="label-criar-lista" class="label" for="criação-lista-container">Criar lista</label>
+        <input
+            id="input-criar-lista"
+            class="primary-input"
+            type="text"
+            name="input_list"
+            autocomplete="off"
+            maxlength="60"
+            placeholder="nome lista"
+        > 
+        <input
+            id="send-criar-lista"
+            class="primary-btn"
+            type="submit"
+            value="Criar"
+        >
     </form>
 </div>
 
 <!-- Menu de seleção para que a lista seja selecionada. -->
 <div id="container-select">    
     <form action="">
-        <select id="select" name="select">
-            <!-- <option value="aaaa">aaaa</option> -->
+        <select
+            id="select"
+            class="primary-input"
+            name="select"
+            style="color: #8d8d8d;"
+        >
+            <option>escolha aqui</option>
         </select>
-        <!-- <button type="button" id="atualizar-lista-button">Atualizar lista de listas;</button> -->
-        <button type="button" id="atualizar-lista-button">&#128260;</button>
-        <input id="button-select" type="submit" value="Selecionar">
-        <label id="label-select" class="label" for="select">Selecionar Lista</label>
-    </form>  
+        <input
+            id="button-select"
+            class="primary-btn"
+            type="submit"
+            value="Selecionar"
+        >
+    </form>
 </div>
 
 <!-- Para criar a tarefa e inserir o conteúdo -->
 <div id="div-criar-tarefa-form">
     <form id="criar-tarefa-form" action="">
-        <!-- <button type="submit">aa</button> -->
-        <input id="input-content-tarefa" type="text" name="input_list2" autocomplete="off"/>
-        <button class="btn btn-primary" id="button-criar-tarefa" type="submit">Add</button>
-        <label id="label-criar-tarefa" class="label" for="criar-tarefa">Criar tarefa</label>
+        <input
+            id="input-content-tarefa"
+            class="primary-input"
+            type="text"
+            name="input_list2"
+            autocomplete="off"
+            maxlength="60"
+            placeholder="conteúdo tarefa"
+        />
+        <button
+            class="primary-btn"
+            id="button-criar-tarefa"
+            type="submit">
+            Criar
+        </button>
     </form>
 </div>
 
@@ -41,30 +71,30 @@
 <div id="div-botão-visualizar-listas">
     <form id="botão-visualizar-listas">
         <div>
-            <button id="button-visualizar-listas" type="button" onclick="visualizar_lista();">Visualizar lista</button>
-            <label id="label-visualizar-listas" class="label" for="visualizar-lista">Visualizar lista</label>
+            <button
+                id="button-visualizar-listas"
+                class="primary-btn"
+                type="button"
+                onclick="abrirLista();">
+                Visualizar lista
+            </button>
         </div>
     </form>
 </div>
 
-<p id="lista-selecionada">[LISTA SELECIONADA]</p>
+<p id="lista-selecionada" class="label"></p>
 <!-- Bloco de codigo para renderizar as tarefas: -->
 <div class="div-component">
     <div class="lista-e-tarefa-component">
         <div id="div-lista-title">
-            <!-- Botões lista -->
-            <div id="div-edit-delete-lista">
-                <input id="input-button-edit-lista" type="button" value="Edit" onclick="editNomeLista();">
-                <input id="input-button-delete-lista" type="button" value="Del" onclick="deleteLista();">
-            </div>
-            <!-- Nome da lista -->
-            <div class="lista-title" id="lista-title">
-                [NOME DA LISTA]
-            </div>
+            <!-- //////////////////////////////////////////////////////////////////-->
+            <!-- O bloco com as opções para editar/deletar a lista, entra aqui. -->
+            <!-- //////////////////////////////////////////////////////////////////-->
         </div>
         <div class="lista-content" id="lista-content-id">
-        <!-- //////////////////////////////////////////////////////////////////-->
-        <!-- //////////////////////////////////////////////////////////////////-->
+            <!-- //////////////////////////////////////////////////////////////////-->
+            <!-- O bloco com as tarefas entra aqui -->
+            <!-- //////////////////////////////////////////////////////////////////-->
         </div>
     </div>
 </div>

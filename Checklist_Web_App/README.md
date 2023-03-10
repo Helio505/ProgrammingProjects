@@ -12,7 +12,7 @@ Aplicação Web de Checklist, que possibilita a criação, modificação e remo�
     - Criar uma tarefa.
     - (se não aparecer automaticamente) Clicar em visualizar lista.
 
-## Em funcionamento
+## Em funcionamento (versão antiga)
 ![gif](other/gif.gif)
 
 ## Informações principais
