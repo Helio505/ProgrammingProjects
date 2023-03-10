@@ -169,7 +169,7 @@ function editNomeListaRequest() {
     // Mandando request:
     var http = new XMLHttpRequest();
     var url = "http://127.0.0.1:5000/lists/selected/name";
-    var method = "PUT";
+    var method = "PATCH";
   
     http.open(method, url);
     http.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
@@ -375,7 +375,7 @@ function editTarefaRequest(parameter) {
     // Mandando request:
     var http = new XMLHttpRequest();
     var url = `http://127.0.0.1:5000/tasks/${hiddenInputId}`;
-    var method = "PUT";
+    var method = "PATCH";
 
     http.open(method, url);
     http.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
@@ -397,7 +397,7 @@ function editTarefaStatus(par1, par2) {
     // Mandando request:
     var http = new XMLHttpRequest();
     var url = "http://127.0.0.1:5000/tasks/status";
-    var method = "PUT";
+    var method = "PATCH";
 
     http.open(method, url);
     http.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');

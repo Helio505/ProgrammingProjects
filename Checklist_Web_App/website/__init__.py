@@ -20,7 +20,7 @@ def create_app():
             session.commit()
 
             return {"result": f"Tarefa em id={id} deletada."}
-        def put(self, id):
+        def patch(self, id):
             from .views import session, sessionmaker, engine, Extra, Tarefa
 
             Session = sessionmaker(bind=engine)

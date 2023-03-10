@@ -222,7 +222,7 @@ def get_todas_tarefas_pertencentes():
         )
     )
 
-@views.route("/tasks/status", methods=['PUT'])
+@views.route("/tasks/status", methods=['PATCH'])
 def mudar_status_checkbox():
     """
     Pega o submit do checkbox, e o id do checkbox.
@@ -295,7 +295,7 @@ def delete_lista():
     # receber os dados aqui e mudar o nome da lista no banco de dados
     return {"data": "lista deletada com sucesso"}
     
-@views.route("/lists/selected/name", methods=["PUT"])
+@views.route("/lists/selected/name", methods=["PATCH"])
 def edit_nome_lista():
     """
     Modifica o nome da lista selecionada.
