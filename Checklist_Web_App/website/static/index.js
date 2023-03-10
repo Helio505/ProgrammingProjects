@@ -1,5 +1,5 @@
 // Ao iniciar a aplicação:
-visualizar_lista();
+// visualizar_lista();
 
 function resetPage() {
     /* Reseta a página, e limpa o URL. */
@@ -47,10 +47,23 @@ function visualizar_lista() {
     /*
         Mostra a lista selecionada, e suas tarefas.
     */
+        criarVisualizarListaContainer();
         get_name_lista();
         get_tarefas_pertencentes();
 }   
 
+function criarVisualizarListaContainer() {
+    document.querySelector("#div-lista-title").innerHTML = (
+        `
+        <div id="div-edit-delete-lista">
+            <input id="input-button-edit-lista" type="button" value="Edit" onclick="editNomeLista();">
+            <input id="input-button-delete-lista" type="button" value="Del" onclick="deleteLista();">
+        </div>
+        <div class="lista-title" id="lista-title">
+            
+        </div>
+        `);
+}
 
 function get_name_lista() {
     /* Pega o nome da lista selecionada. */
