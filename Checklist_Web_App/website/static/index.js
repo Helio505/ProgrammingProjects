@@ -2,7 +2,7 @@
 function onStart() {
     setTimeout(() => {
         atualizarListaDeListas();
-        abrirLista();
+        // abrirLista();
     }, 200);
 }
 onStart();
