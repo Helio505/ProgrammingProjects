@@ -14,7 +14,7 @@ document.getElementById("form").addEventListener("submit", function (e) {
   separadas.map((palavra) => {
     nomeCapitalizado +=
       palavra.charAt(0).toUpperCase() + palavra.slice(1) + " ";
-  });
+  }).trim();
 
   // Calculo
   const media = ((nota1 + nota2 + nota3) / 3).toFixed(2);
