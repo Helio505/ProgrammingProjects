@@ -1,0 +1,54 @@
+body {
+    margin: 20px;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    background-color: rgb(0, 0, 0);
+    /* align everything on center */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+* {
+    color: white;
+}
+
+#title {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group>label {
+    margin-bottom: 5px;
+}
+
+.form-group>input {
+    padding: 5px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: none;
+    color: black;
+}
+
+#submit-button {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: rgb(190, 174, 23);
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 0;
+}
+
+#resultado {
+    margin-top: 20px;
+    text-align: center;
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 5px;
+}
